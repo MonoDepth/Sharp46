@@ -97,11 +97,14 @@ namespace Sharp46.SMS
         /// </summary>
         public int Parts { get; set; }
 
+        /// <summary>
+        /// Returns false if status is "failed" or "unkown", otherwise true
+        /// </summary>
         public bool SendSuccess
         {
             get
             {
-                return Status != Sms.SmsStatus.Failed && Status != Sms.SmsStatus.Unkown;
+                return Status != SmsStatus.Failed && Status != SmsStatus.Unkown;
             }
         }
     }

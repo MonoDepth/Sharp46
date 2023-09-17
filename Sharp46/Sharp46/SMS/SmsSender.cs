@@ -11,8 +11,8 @@ namespace Sharp46.SMS
         /// <param name="smsRequest">The sms request</param>
         /// <param name="restClient">restClient to use for REST operations</param>
         /// <param name="endpoint">The endpoint</param>
-        /// <returns></returns>
-        /// <exception cref="SendMessageException"></exception>
+        /// <returns>The SMS response</returns>
+        /// <exception cref="SendMessageException">Thrown if the message fails to send with the inner exception detailing why</exception>
         public static async Task<SendSmsResponse> Send(SmsRequest smsRequest, IRestClient restClient, string endpoint)
         {
             try
@@ -43,6 +43,16 @@ namespace Sharp46.SMS
             }
         }
 
+        /// <summary>
+        /// Gets the SMS history for the account, automatically fetching the next page as needed
+        /// </summary>
+        /// <param name="restClient">REST client to use</param>
+        /// <param name="endpoint">Endpoint which to call to fetch the list</param>
+        /// <param name="start">(Optional) Retrieve SMS before this date</param>
+        /// <param name="end">(Optional) Retrieve SMS after this date</param>        
+        /// <param name="numberFilter">Optionally filter on recipient phonenumber</param>
+        /// <returns>Async enumerable which can be used to iterate the messages</returns>
+        /// <exception cref="FetchException">Thrown when we recieve a non OK status code</exception>
         public static async IAsyncEnumerable<Sms> GetHistory(IRestClient restClient, string endpoint, string? start, string? end, string? numberFilter)
         {
             string next = start ?? "";
@@ -85,6 +95,12 @@ namespace Sharp46.SMS
             yield break;
         }
 
+        /// <summary>
+        /// Gets a specific historic SMS by its ID
+        /// </summary>
+        /// <param name="restClient">The REST client to use</param>
+        /// <param name="endpoint">The endpoint to call to fetch the SMS</param>
+        /// <returns>The SMS if found, otherwise null</returns>
         public static async Task<Sms?> GetSms(IRestClient restClient, string endpoint)
         {
             var result = await restClient.GetAsync(endpoint);

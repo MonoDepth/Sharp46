@@ -24,7 +24,14 @@ namespace Sharp46.SMS
             OutgoingReply
         }
 
+        /// <summary>
+        /// ID of the SMS.
+        /// </summary>
         public string Id { get; set; } = string.Empty;
+
+        /// <summary>
+        /// The time in UTC when the SMS was created.
+        /// </summary>
         public DateTime Created { get; set; }
 
         /// <summary>
@@ -50,16 +57,42 @@ namespace Sharp46.SMS
                 };
             }
         }
+
         /// <summary>
         /// The SMS direction. Enum is get only, please use RawDirection to modify the value.
         /// </summary>
         [JsonIgnore]
         public SmsDirection Direction { get; private set; } = SmsDirection.Unkown;
+
+        /// <summary>
+        /// The sender.
+        /// </summary>
         public string From { get; set; } = string.Empty;
+
+        /// <summary>
+        /// The phone number of the recipient, in E.164 format.
+        /// </summary>
         public string To { get; set; } = string.Empty;
+
+        /// <summary>
+        ///  The content of the SMS, same as the message parameter. Not included in the response if dontlog=message is set.
+        /// </summary>
         public string Message { get; set; } = string.Empty;
+
+        /// <summary>
+        /// created (recieved by our servers), sent (sent from us to the carrier), delivered (confirmed delivered to the recipient) or failed (could not be delivered).
+        /// </summary>
         public SmsStatus Status { get; set; } = SmsStatus.Unkown;
+
+        /// <summary>
+        /// The time in UTC when the SMS was delivered.
+        /// </summary>
         public DateTime? Delivered { get; set; }
+
+        /// <summary>
+        /// <para>The cost of sending the SMS. Specified in 10000s of the currency of the account (SEK or EUR).</para>
+        /// <para>For example, for an account with currency SEK, a cost of 3500 means that it cost 0.35SEK. Learn more about the details of pricing.</para>
+        /// </summary>
         public int Cost { get; set; }
     }
 }
