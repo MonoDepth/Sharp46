@@ -104,7 +104,7 @@ namespace Sharp46_UnitTests
             yield return new object[] { "+85200-000-00-00" };
 
             //Also validate strict format numbers
-            foreach(var number in StrictValidNumbers())
+            foreach (var number in StrictValidNumbers())
             {
                 yield return number;
             }

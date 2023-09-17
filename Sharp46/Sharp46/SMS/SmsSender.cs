@@ -1,6 +1,5 @@
 ﻿using Sharp46.Exceptions;
 using Sharp46.Rest;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Sharp46.SMS
 {
@@ -81,7 +80,7 @@ namespace Sharp46.SMS
                 {
                     throw new FetchException($"Failed to fetch sms history with reason: HTTP Status {result.Response.StatusCode}", null);
                 }
-            } while (!string.IsNullOrWhiteSpace(next));    
+            } while (!string.IsNullOrWhiteSpace(next));
 
             yield break;
         }

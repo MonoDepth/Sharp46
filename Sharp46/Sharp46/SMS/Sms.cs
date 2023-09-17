@@ -1,5 +1,4 @@
-﻿using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace Sharp46.SMS
 {
@@ -21,7 +20,7 @@ namespace Sharp46.SMS
         {
             Unkown,
             Outgoing,
-            Incoming,            
+            Incoming,
             OutgoingReply
         }
 
@@ -33,8 +32,9 @@ namespace Sharp46.SMS
         /// <para>outgoing, incoming, outgoing-reply</para>
         /// </summary>
         [JsonPropertyName("direction")]
-        public string RawDirection { 
-            get 
+        public string RawDirection
+        {
+            get
             {
                 return _rawStatus;
             }

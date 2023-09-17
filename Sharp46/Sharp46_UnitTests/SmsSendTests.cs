@@ -128,7 +128,8 @@ namespace Sharp46_UnitTests
         {
             var restClient = Substitute.For<IRestClient>();
 
-            restClient.GetAsync(Arg.Any<string>(), Arg.Any<object[]>()).Returns(x => {
+            restClient.GetAsync(Arg.Any<string>(), Arg.Any<object[]>()).Returns(x =>
+            {
                 if ((x.Args()[1] as object[])!.Contains("2017-02-21T14:15:30.427000"))
                 {
                     return new RequestResponse()
@@ -149,7 +150,7 @@ namespace Sharp46_UnitTests
                         }
                     };
                 }
-                
+
             });
 
             var client = new Sharp46Client(restClient);
@@ -157,7 +158,7 @@ namespace Sharp46_UnitTests
 
             List<Sms> history = new();
 
-            await foreach(var sms in historyAsync)
+            await foreach (var sms in historyAsync)
             {
                 history.Add(sms);
             }

@@ -1,13 +1,9 @@
 ﻿using Sharp46.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Text.Json;
-using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http.Headers;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Sharp46.Rest
 {
@@ -52,7 +48,7 @@ namespace Sharp46.Rest
         }
 
         public async Task<RequestResponse> GetAsync(string endpoint, params object[] queryParams)
-        {            
+        {
             if (queryParams.Length > 0)
             {
                 if (queryParams.Length % 2 != 0)
@@ -78,12 +74,12 @@ namespace Sharp46.Rest
         }
 
         public async Task<RequestResponse> PostAsync(string endpoint, IFormRequest body)
-        {            
+        {
             var result = await Client.PostAsync(endpoint, body.ToFormEncoded());
 
             return new RequestResponse()
             {
-                Response = result                
+                Response = result
             };
         }
 

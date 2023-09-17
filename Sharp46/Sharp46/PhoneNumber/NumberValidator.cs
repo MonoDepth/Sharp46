@@ -1,10 +1,5 @@
 ﻿using Sharp46.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Sharp46.PhoneNumber
 {
@@ -103,7 +98,7 @@ namespace Sharp46.PhoneNumber
         /// <param name="number">The number to extract the country code from</param>
         /// <returns>The country code if present, otherwise <see cref="null"/></returns>
         public static string? ExtractCountryCode(string number)
-        {            
+        {
             // TODO: Could probably optimize this one
             var countryCode = CountryCodes.All.OrderBy(x => x.Length).FirstOrDefault(cc => number.StartsWith(cc));
             return countryCode;

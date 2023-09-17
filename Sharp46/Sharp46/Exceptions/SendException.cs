@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sharp46.Exceptions
+﻿namespace Sharp46.Exceptions
 {
     /// <summary>
     /// Thrown during an error when attempting to send a message
     /// See the innerException for more details
     /// </summary>
-    public class SendMessageException: Exception
+    public class SendMessageException : Exception
     {
         /// <summary>
         /// Thrown during an error when attempting to send a message

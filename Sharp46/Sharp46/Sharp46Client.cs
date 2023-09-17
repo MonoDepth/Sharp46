@@ -4,7 +4,7 @@ using Sharp46.SMS;
 
 namespace Sharp46.Client
 {
-    public class Sharp46Client 
+    public class Sharp46Client
     {
         private readonly IRestClient _restClient;
         private const string _baseUrl = "https://api.46elks.com/";

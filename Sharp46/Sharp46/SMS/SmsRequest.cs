@@ -1,13 +1,8 @@
 ﻿using Sharp46.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sharp46.SMS
 {
-    public class SmsRequest: IFormRequest
+    public class SmsRequest : IFormRequest
     {
         /// <summary>
         /// <para>The sender of the SMS as seen by the recipient.</para>
@@ -23,12 +18,12 @@ namespace Sharp46.SMS
         /// <summary>
         /// The message to send.
         /// </summary>
-        public string Message { get; set; } = string.Empty; 
+        public string Message { get; set; } = string.Empty;
 
         /// <summary>
         /// This webhook URL will receive a POST request every time the delivery status changes. 
         /// </summary>
-        public string WhenDelivered { get; set; } = string.Empty; 
+        public string WhenDelivered { get; set; } = string.Empty;
 
         /// <summary>
         /// Send the message as a Flash SMS. The message will be displayed immediately upon arrival and not stored. 
@@ -49,7 +44,7 @@ namespace Sharp46.SMS
 
         public FormUrlEncodedContent ToFormEncoded()
         {
-           var content = new List<KeyValuePair<string, string>>() {
+            var content = new List<KeyValuePair<string, string>>() {
                 new("to", To),
                 new("from", From),
                 new("message", Message),
