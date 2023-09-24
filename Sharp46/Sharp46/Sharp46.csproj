@@ -13,11 +13,19 @@ Can be used to send SMS/MMS messages through the API.</Description>
     <RepositoryUrl>https://github.com/MonoDepth/Sharp46</RepositoryUrl>
     <PackageTags>46elks</PackageTags>
 	<Version>0.1.0</Version>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="MMS\" />
     <Folder Include="VOIP\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
