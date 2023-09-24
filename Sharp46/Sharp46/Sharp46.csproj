@@ -4,6 +4,15 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Sharp46</Title>
+    <Authors>Monodepth</Authors>
+    <Description>Integration with the 46Elks API.
+Can be used to send SMS/MMS messages through the API.</Description>
+    <PackageProjectUrl>https://github.com/MonoDepth/Sharp46</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MonoDepth/Sharp46</RepositoryUrl>
+    <PackageTags>46elks</PackageTags>
+	<Version>0.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
